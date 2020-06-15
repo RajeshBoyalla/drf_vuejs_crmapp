@@ -6,11 +6,10 @@
 <div id="container123">
     <b-container class="bv-example-row">
         <b-form-row class="text-center">
-            <b-col cols="3">
-                <div id="calendar">
+            <b-col cols="4">
+                <div id="calendar" class="dashboard-calendar">
                     <template>
                     <div>
-                      <label for="example-input">Choose a date</label>
                       <b-input-group class="mb-1">
                         <b-form-input
                           id="example-input"
@@ -30,25 +29,54 @@
                           ></b-form-datepicker>
                         </b-input-group-append>
                       </b-input-group>
-                      <p class="mb-1">Value: '{{ value }}'</p>
-                      <p class="mb-1">Selected: '{{ selected }}'</p>
-                      <p>Formatted: '{{ formatted }}'</p>
                     </div>
                   </template>
                 </div>
 
                 <div id="inventory">
-                    <template>
-                        <label for="input-with-list">Inventory</label>
-                        
-                        <!-- <b-form-input list="input-list" id="input-with-list"></b-form-input>
-                        <b-form-datalist id="input-list" :options="options"></b-form-datalist> -->
-                        <b-form-select v-model="selected" :options="options" :select-size="4"></b-form-select>
-                
-                      </template>
-                    <!-- <b-form-select v-model="selected" :options="data" :select-size="4"></b-form-select>
-                    <div class="mt-3">Selected: <strong>[[ selected ]]</strong></div> -->
+                    <h5 style="text-align: left">Inventory</h5>
+                    <div class="dashboard-inventory">
+
+
+                        <ul>
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Milk</li>
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Milk</li>
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Milk</li>
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Milk</li>
+                        </ul>
+                    </div>
+
                 </div>
+                <div id="adinfo">
+                    <h5 style="text-align: left">AD INFO</h5>
+                    <div class="dashboard-adinfo">
+                        <ul>
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Milk</li>
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Milk</li>
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Milk</li>
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Milk</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+
             </b-col>
 
             <b-col cols="6">
@@ -66,8 +94,120 @@
                       </template>
                 </div>
 
+                <div id="dcdiag">
+                    <h5 style="text-align: left; margin-top:20px">DCDIAG</h5>
+                    <div class="dashboard-dcdiag">
+                        <ul>
+                            <li>
+                                <Button>Advertising</Button>
+                            </li>
+                            <li>
+                                <Button>SysVolCheck</Button>
+                            </li>
+                            <li>
+                                <Button>NCSecDesc</Button>
+                            </li>
+                            <li>
+                                <Button>FrsEvent</Button>
+                            </li>
+                            <li>
+                                <Button>KnowsOfROI</Button>
+                            </li>
+                            <li>
+                                <Button>NetLogons</Button>
+                            </li>
+                            <li>
+                                <Button>DFSREvent</Button>
+                            </li>
+                            <li>
+                                <Button>MachineAcco</Button>
+                            </li>
+                            <li>
+                                <Button>Advertising</Button>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+                <div id="replication">
+                    <h5 style="text-align: left">REPLICATION</h5>
+                    <div class="dashboard-replication">
+                        <ul>
+                            <li>
+                                <Button>1</Button>
+                            </li>
+                            <li>
+                                <Button>2</Button>
+                            </li>
+                            <li>
+                                <Button>3</Button>
+                            </li>
+                            <li>
+                                <Button>4</Button>
+                            </li>
+                            <li>
+                                <Button>5</Button>
+                            </li>
+                            <li>
+                                <Button>6</Button>
+                            </li>
+                            <li>
+                                <Button>7</Button>
+                            </li>
+                            <li>
+                                <Button>8</Button>
+                            </li>
+                            <li>
+                                <Button>9</Button>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+                <div id="agents">
+                    <h5 style="text-align: left">AGENTS</h5>
+                    <div class="dashboard-agents">
+                        <ul>
+                            <li>
+                                <Button>SCOM</Button>
+                            </li>
+                            <li>
+                                <Button>TIDEWAY</Button>
+                            </li>
+                            <li>
+                                <Button>SCCM</Button>
+                            </li>
+                            <li>
+                                <Button>TANIUM</Button>
+                            </li>
+                            <li>
+                                <Button>CCS</Button>
+                            </li>
+                            <li>
+                                <Button>ILLUMIO</Button>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
             </b-col>
-            <b-col>3 of 3</b-col>
+
+
+            <b-col>
+
+                <div id="refresh">
+                    <b-button>Refresh</b-button>
+
+                </div>
+
+                <div id="pdfdownload">
+                    <b-button>PDF Report</b-button>
+
+                </div>
+            </b-col>
         </b-form-row>
     </b-container>
 </div>

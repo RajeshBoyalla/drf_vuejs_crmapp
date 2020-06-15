@@ -20,6 +20,97 @@ body {
     height: 100%;
 }
 
-#inventory {
+
+/* #inventory {
     background-color: grey;
+} */
+
+.dashboard-calendar {
+    width: 100%!important;
 }
+
+.mb-1 {
+    float: right;
+    width: 150px;
+    font-size: 20px;
+}
+
+.dashboard-inventory,
+.dashboard-adinfo {
+    border: 1px solid grey;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    height: 300px;
+    max-height: 300px;
+    overflow: scroll;
+    width: 100%;
+}
+
+.dashboard-inventory ul,
+.dashboard-adinfo ul {
+    list-style: none;
+    padding: 0px;
+}
+
+#inventory,
+#adinfo {
+    width: 100%;
+    float: left;
+}
+
+.dashboard-dcdiag,
+.dashboard-replication,
+.dashboard-agents {
+    border: 1px solid grey;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    height: 200px;
+    max-height: 200px;
+    overflow: scroll;
+    width: 100%;
+}
+
+.dashboard-dcdiag ul,
+.dashboard-replication ul,
+.dashboard-agents ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.dashboard-dcdiag ul li,
+.dashboard-replication ul li,
+.dashboard-agents ul li {
+    display: inline;
+    margin: 5px;
+    padding: 10px;
+}
+
+.dashboard-dcdiag ul li button,
+.dashboard-replication ul li button,
+.dashboard-agents ul li button {
+    width: 150px;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#refresh {
+    padding: 20px;
+    width: 100%;
+}
+
+#refresh button,
+#pdfdownload button {
+    width: 60%;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 25px;
+}
+
+
+/* #pdfdownload {
+    padding: 10px;
+} */
