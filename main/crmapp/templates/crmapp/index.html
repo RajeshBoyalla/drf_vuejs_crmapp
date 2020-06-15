@@ -252,17 +252,6 @@
         mounted() {
             this.getInventory();
         },
-        computed: {
-            formattedInventories() {
-                return Object.values(this.inventories)
-            },
-            // calculateResult() {
-            //     return (Number(this.amount) * this.result).toFixed(3)
-            // },
-            // disabled() {
-            //     return this.amount === 0 || !this.amount || this.loading;
-            // }
-        },
 
         methods: {
             getInventory() {
@@ -288,46 +277,11 @@
     //     }
     // });
 
-    new Vue({
-        el: '#v1'
-    });
-
-    new Vue({
-        el: '#inventory',
-        delimiters: ['[[', ']]'],
-        data() {
-            return {
-                options: [{
-                    name: 'Rajesh',
-                    age: 36,
-                    area: 'Singapore',
-                    pincode: 760784
-                }, {
-                    name: 'Rajesh',
-                    age: 36,
-                    area: 'Singapore',
-                    pincode: 760784
-                }, {
-                    name: 'Rajesh',
-                    age: 36,
-                    area: 'Singapore',
-                    pincode: 760784
-                }, {
-                    name: 'Rajesh',
-                    age: 36,
-                    area: 'Singapore',
-                    pincode: 760784
-                }]
-            }
-        }
-    });
-
-
 
     new Vue({
         el: '#navbar',
         delimiters: ['[[', ']]'],
-    }); // new Vue({ // el: '#container-1' // }); new Vue({ el: '#grid-1', delimiters: ['[[', ']]'], });
+    });
 
     new Vue({
         el: '#breadcrumb'
