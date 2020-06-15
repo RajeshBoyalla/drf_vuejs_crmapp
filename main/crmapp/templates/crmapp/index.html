@@ -1,37 +1,42 @@
 {% extends 'crmapp/masterpage.html' %} {% block content %}
 <!-- <div class="nav-bar"></div> -->
 
-<!-- <div id="app">
-    <p> [[ title ]] </p>
-    <ul>
-        <li v-for="day in days">
-            <h4> Day [[ day ]]</h4>
-        </li>
-    </ul>
-</div> -->
-
-<!-- <div id='app'>
-    <b-alert show dismissible> Hello [[ name ]]! </b-alert>
-</div>
-
-<div id='list'>
-    <b-list-group-item v-for="item in items" v-bind:key="item.id">
-        [[ item.message ]]
-    </b-list-group-item>
-</div> -->
-
-<!-- <div id="center" class="text-center">
-    <b-button variant="primary" size="sm" @click="share_count++">
-        Share on Twitter
-        <b-badge variant="light">[[ share_count ]]</b-badge>
-    </b-button>
-</div> -->
 
 
 <div id="container123">
     <b-container class="bv-example-row">
         <b-form-row class="text-center">
             <b-col cols="3">
+                <div id="calendar">
+                    <template>
+                    <div>
+                      <label for="example-input">Choose a date</label>
+                      <b-input-group class="mb-1">
+                        <b-form-input
+                          id="example-input"
+                          v-model="value"
+                          type="text"
+                          placeholder="YYYY-MM-DD"
+                          autocomplete="off"
+                        ></b-form-input>
+                        <b-input-group-append>
+                          <b-form-datepicker
+                            v-model="value"
+                            button-only
+                            right
+                            locale="en-US"
+                            aria-controls="example-input"
+                            @context="onContext"
+                          ></b-form-datepicker>
+                        </b-input-group-append>
+                      </b-input-group>
+                      <p class="mb-1">Value: '{{ value }}'</p>
+                      <p class="mb-1">Selected: '{{ selected }}'</p>
+                      <p>Formatted: '{{ formatted }}'</p>
+                    </div>
+                  </template>
+                </div>
+
                 <div id="inventory">
                     <template>
                         <label for="input-with-list">Inventory</label>
@@ -132,26 +137,8 @@
                         localStorage.setItem('inventories', JSON.stringify(response.data.results))
                     })
             },
-            convertCurrency() {
-                const key = `${this.from}_${this.to}`
-                this.loading = true
-                axios.get(`https://free.currconv.com/api/v7/convert?q=${key}&apiKey=717c3e050b8f010f01a4`)
-                    .then((response) => {
-                        this.loading = false
-                        console.log(response)
-                        this.result = response.data.results[key].val
-                    })
-            }
-        },
-        watch: {
-            from() {
-                this.result = 0
-            },
-            to() {
-                this.result = 0
-            }
 
-        }
+        },
     });
     // new Vue({
     //     el: '#test',
