@@ -1,0 +1,213 @@
+{% extends 'crmapp/masterpage.html' %} {% block content %}
+<!-- <div class="nav-bar"></div> -->
+
+<!-- <div id="app">
+    <p> [[ title ]] </p>
+    <ul>
+        <li v-for="day in days">
+            <h4> Day [[ day ]]</h4>
+        </li>
+    </ul>
+</div> -->
+
+<!-- <div id='app'>
+    <b-alert show dismissible> Hello [[ name ]]! </b-alert>
+</div>
+
+<div id='list'>
+    <b-list-group-item v-for="item in items" v-bind:key="item.id">
+        [[ item.message ]]
+    </b-list-group-item>
+</div> -->
+
+<!-- <div id="center" class="text-center">
+    <b-button variant="primary" size="sm" @click="share_count++">
+        Share on Twitter
+        <b-badge variant="light">[[ share_count ]]</b-badge>
+    </b-button>
+</div> -->
+
+
+<div id="container123">
+    <b-container class="bv-example-row">
+        <b-form-row class="text-center">
+            <b-col cols="3">
+                <div id="inventory">
+                    <template>
+                        <label for="input-with-list">Inventory</label>
+                        
+                        <!-- <b-form-input list="input-list" id="input-with-list"></b-form-input>
+                        <b-form-datalist id="input-list" :options="options"></b-form-datalist> -->
+                        <b-form-select v-model="selected" :options="options" :select-size="4"></b-form-select>
+                
+                      </template>
+                    <!-- <b-form-select v-model="selected" :options="data" :select-size="4"></b-form-select>
+                    <div class="mt-3">Selected: <strong>[[ selected ]]</strong></div> -->
+                </div>
+            </b-col>
+
+            <b-col cols="6">
+                <div id="breadcrumb">
+                    <template>
+                        <b-breadcrumb>
+                          <b-breadcrumb-item href="#home">
+                            <b-icon icon="house-fill" scale="1.25" shift-v="1.25" aria-hidden="true"></b-icon>
+                            HOME
+                          </b-breadcrumb-item>
+                          <b-breadcrumb-item href="#domain">DOMAIN</b-breadcrumb-item>
+                          <b-breadcrumb-item href="#VMMRDC101">VMMRDC101</b-breadcrumb-item>
+                          <b-breadcrumb-item active>REPORT</b-breadcrumb-item>
+                        </b-breadcrumb>
+                      </template>
+                </div>
+
+            </b-col>
+            <b-col>3 of 3</b-col>
+        </b-form-row>
+    </b-container>
+</div>
+
+<div class="content">
+    <b-container-fluid>
+
+    </b-container-fluid>
+
+</div>
+
+<!-- <div id="test">
+    <b-card-body>
+        <b-nav pills card-header slot="header" v-b-scrollspy:nav-scroller>
+            <ul>
+                <li v-for="day in days">
+                    <h4> Day [[ day ]]</h4>
+                </li>
+            </ul>
+        </b-nav>
+        </b-card>
+
+</div> -->
+
+
+
+
+
+
+
+
+
+<!-- VUE.JS CODE STARTS HERE-->
+
+<script>
+    new Vue({
+        el: '#inventory',
+        delimiters: ['[[', ']]'],
+        data: {
+            inventories: []
+        },
+        mounted() {
+            this.getInventory();
+        },
+        computed: {
+            formattedInventories() {
+                return Object.values(this.inventories)
+            },
+            // calculateResult() {
+            //     return (Number(this.amount) * this.result).toFixed(3)
+            // },
+            // disabled() {
+            //     return this.amount === 0 || !this.amount || this.loading;
+            // }
+        },
+
+        methods: {
+            getInventory() {
+                const inventories = localStorage.getItem('inventories')
+                if (inventories) {
+                    this.inventories = JSON.parse(inventories);
+                    return;
+                }
+                axios.get('http://127.0.0.1:8000/api/accounts')
+                    .then(response => {
+                        this.inventories = response.data.results;
+                        localStorage.setItem('inventories', JSON.stringify(response.data.results))
+                    })
+            },
+            convertCurrency() {
+                const key = `${this.from}_${this.to}`
+                this.loading = true
+                axios.get(`https://free.currconv.com/api/v7/convert?q=${key}&apiKey=717c3e050b8f010f01a4`)
+                    .then((response) => {
+                        this.loading = false
+                        console.log(response)
+                        this.result = response.data.results[key].val
+                    })
+            }
+        },
+        watch: {
+            from() {
+                this.result = 0
+            },
+            to() {
+                this.result = 0
+            }
+
+        }
+    });
+    // new Vue({
+    //     el: '#test',
+    //     delimiters: ['[[', ']]'],
+    //     data: {
+    //         days: [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]
+    //     }
+    // });
+
+    new Vue({
+        el: '#v1'
+    });
+
+    new Vue({
+        el: '#inventory',
+        delimiters: ['[[', ']]'],
+        data() {
+            return {
+                options: [{
+                    name: 'Rajesh',
+                    age: 36,
+                    area: 'Singapore',
+                    pincode: 760784
+                }, {
+                    name: 'Rajesh',
+                    age: 36,
+                    area: 'Singapore',
+                    pincode: 760784
+                }, {
+                    name: 'Rajesh',
+                    age: 36,
+                    area: 'Singapore',
+                    pincode: 760784
+                }, {
+                    name: 'Rajesh',
+                    age: 36,
+                    area: 'Singapore',
+                    pincode: 760784
+                }]
+            }
+        }
+    });
+
+
+
+    new Vue({
+        el: '#navbar',
+        delimiters: ['[[', ']]'],
+    }); // new Vue({ // el: '#container-1' // }); new Vue({ el: '#grid-1', delimiters: ['[[', ']]'], });
+
+    new Vue({
+        el: '#breadcrumb'
+    });
+
+    new Vue({
+        el: '#container123'
+    });
+</script>
+{% endblock %}
